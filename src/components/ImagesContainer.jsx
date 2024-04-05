@@ -1,36 +1,50 @@
 import { Tabs } from "antd";
 import React from "react";
 
-import category_1 from "../assets/category_1.svg";
-import category_2 from "../assets/category_2.svg";
+
+import { usePhotoList } from "../api/media";
+import MediaContainer from "./MediaContainer";
 
 const ImagesContainer = () => {
-  const ImageCard = () => {
-    return (
-      <>
-        <img src={category_2} alt={category_1} className="w-full h-auto" />
-      </>
-    );
-  };
+  const { data: photos, isLoading: isPhotosLoading } = usePhotoList();
+
+  const mediaTypes = [
+    {
+      key: 1,
+      label: "All",
+      children: <MediaContainer items={photos} loading={isPhotosLoading} />,
+    },
+    {
+      key: 2,
+      label: "Photos",
+      children: <MediaContainer items={photos} loading={isPhotosLoading} />,
+    },
+    {
+      key: 3,
+      label: "Videos",
+      children: <MediaContainer items={[]} loading={false} />,
+    },
+    {
+      key: 4,
+      label: "Freebies",
+      children: <MediaContainer items={[]} loading={false} />,
+    },
+    {
+      key: 5,
+      label: "360",
+      children: <MediaContainer items={[]} loading={false} />,
+    },
+  ];
+
   return (
     <>
       <Tabs
         tabPosition={"top"}
-        items={new Array(3).fill(null).map((_, i) => {
-          const id = String(i + 1);
+        items={mediaTypes?.map((media) => {
           return {
-            label: `Tab ${id}`,
-            key: id,
-            children: (
-              <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-4">
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-              </div>
-            ),
+            label: media?.label,
+            key: media?.key,
+            children: media?.children,
           };
         })}
       />
