@@ -6,12 +6,12 @@ import background from "../assets/heo_cover.svg";
 
 const HeroSection = () => {
   return (
-    <div className="relative ">
+    <div className="md:relative h-full">
       <img src={background} alt="Hero Image" className="w-full " />
 
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-        <div className="flex flex-col justify-start items-center ">
-          <p className="text-white text-2xl">
+      <div className="md:absolute md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 ">
+        <div className="flex flex-col justify-center items-start py-8 gap-4 m-auto ">
+          <p className="text-black md:text-white text-2xl">
             Your local source of high quality images and videos directly from
             their creators
           </p>
@@ -23,7 +23,7 @@ const HeroSection = () => {
             className="rounded-3xl"
           />
 
-          <p className="font-thin text-white text sm">
+          <p className="font-thin text-black md:text-white text-sm">
             Recommended: summer, food, covid-19, real estate, love
           </p>
         </div>

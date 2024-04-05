@@ -4,9 +4,10 @@ import HomeContentsContainer from "../../components/HomeContentsContainer";
 const Home = () => {
   return (
     <>
-      <div className="relative">
+      <div className="md:relative">
         <HeroSection />
-      <div className="absolute top-[80%] left-12 right-12 bg-white ">
+
+      <div className="md:absolute md:top-[90%] lg:top-[80%] md:left-12 md:right-12 bg-white ">
         <HomeContentsContainer />
       </div>
       </div>
