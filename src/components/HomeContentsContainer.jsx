@@ -4,12 +4,12 @@ import ImagesContainer from './ImagesContainer'
 
 const HomeContentsContainer = () => {
   return (
-    <div>
+    <>
       <Categories/>
 
       <ImagesContainer/>
 
-    </div>
+    </>
   )
 }
 

@@ -7,10 +7,10 @@ import background from "../assets/heo_cover.svg";
 const HeroSection = () => {
   return (
     <div className="md:relative h-full">
-      <img src={background} alt="Hero Image" className="w-full " />
+      <img src={background} alt="Hero Image" className="w-full" />
 
       <div className="md:absolute md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 ">
-        <div className="flex flex-col justify-center items-start py-8 gap-4 m-auto ">
+        <div className="flex flex-col justify-center items-start py-8 gap-4 m-auto bg-[rgb(0,0,0,0.2)] p-4 rounded">
           <p className="text-black md:text-white text-2xl">
             Your local source of high quality images and videos directly from
             their creators
