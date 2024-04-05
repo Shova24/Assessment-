@@ -6,7 +6,7 @@ import background from "../assets/heo_cover.svg";
 
 const HeroSection = () => {
   return (
-    <div className="relative bg-red-300 ">
+    <div className="relative ">
       <img src={background} alt="Hero Image" className="w-full " />
 
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">

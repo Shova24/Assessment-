@@ -4,12 +4,9 @@ import Navbar from "../components/Navbar";
 
 const PublicPageLayout = () => {
   return (
-    <div className="bg-white">
+    <div className="min-w-2xl px-8 md:px-12 xl:px-20">
       <Navbar />
-
-      <div className="min-w-2xl px-8 md:px-16 xl:px-24">
-        <Outlet />
-      </div>
+      <Outlet />
     </div>
   );
 };

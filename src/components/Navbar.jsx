@@ -31,7 +31,7 @@ const Navbar = () => {
 //   console.log("screenSize : ", breakPoints);
 
   return (
-    <div className="flex items-center justify-between gap-4 px-2 py-4 text-sm">
+    <div className="flex items-center justify-between gap-4 py-4 text-sm">
       <img src="/logo.svg" alt="logo" className="w-28 h-8" />
 
       <div className="flex items-center gap-1 md:gap-4">
