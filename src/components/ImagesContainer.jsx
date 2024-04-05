@@ -1,6 +1,6 @@
-import { Tabs } from "antd";
+import { Dropdown, Tabs } from "antd";
 import React from "react";
-
+import { RiArrowDropDownFill } from "react-icons/ri";
 
 import { usePhotoList } from "../api/media";
 import MediaContainer from "./MediaContainer";
@@ -36,10 +36,42 @@ const ImagesContainer = () => {
     },
   ];
 
+  const items = [
+    {
+      key: "1",
+      label: "Most Recent",
+    },
+    {
+      key: "2",
+      label: "Most Viewed",
+    },
+    {
+      key: "3",
+      label: "Most Downloaded",
+    },
+    {
+      key: "4",
+      label: "Most Appreciated",
+    },
+  ];
+
   return (
     <>
       <Tabs
         tabPosition={"top"}
+        tabBarExtraContent={
+          <Dropdown
+            menu={{
+              items,
+            }}
+          >
+            <p className="flex items-center gap-2">
+
+            Recommended
+            <RiArrowDropDownFill className="w-6 h-6"/>
+            </p>
+          </Dropdown>
+        }
         items={mediaTypes?.map((media) => {
           return {
             label: media?.label,
