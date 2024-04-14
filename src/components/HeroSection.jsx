@@ -6,12 +6,15 @@ import background from "../assets/heo_cover.svg";
 
 const HeroSection = () => {
   return (
-    <div className="md:relative h-full">
-      <img src={background} alt="Hero Image" className="w-full" />
+    <div
+      className="relative bg-cover bg-no-repeat h-[60vh] bg-[image:var(--image-url)] "
+      style={{ "--image-url": `url(${background})` }}
+    >
+      <div className="h-full bg-black opacity-40"></div>
 
-      <div className="md:absolute md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 ">
-        <div className="flex flex-col justify-center items-start py-8 gap-4 m-auto bg-[rgb(0,0,0,0.2)] p-4 rounded">
-          <p className="text-black md:text-white text-2xl">
+      <div className="absolute inset-0 flex items-center justify-center bg-center bg-cover">
+        <div className="w-2/3 space-y-4 lg:w-1/2">
+          <p className="px-4 text-4xl text-white">
             Your local source of high quality images and videos directly from
             their creators
           </p>
@@ -20,11 +23,12 @@ const HeroSection = () => {
             placeholder="Search photos and videos"
             suffix={<CiSearch />}
             size="large"
-            className="rounded-3xl"
+            className="rounded-3xl "
           />
 
-          <p className="font-thin text-black md:text-white text-sm">
-            Recommended: summer, food, covid-19, real estate, love
+          <p className="px-4 text-sm font-thin text-gray-400">
+            <span className="text-white">Recommended:</span> summer, food,
+            covid-19, real estate, love
           </p>
         </div>
       </div>
