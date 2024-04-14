@@ -1,9 +1,11 @@
-import { Carousel } from "antd";
 import React from "react";
 import {
   IoArrowBackCircleOutline,
   IoArrowForwardCircleOutline,
 } from "react-icons/io5";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 import category_1 from "../assets/category_1.svg";
 import category_2 from "../assets/category_2.svg";
@@ -25,36 +27,42 @@ const Categories = () => {
 
   const settings = {
     dots: true,
-    arrows: true,
-    centerMode: true,
-    centerPadding: "0px",
-    slidesToShow: breakPoint === "xs" ? 2 : breakPoint === "md" ? 3 : 4,
+    speed: 500,
+    slidesToShow:
+      breakPoint === "xs"
+        ? 1
+        : breakPoint === "sm" || breakPoint === "md"
+        ? 2
+        : breakPoint === "lg"
+        ? 3
+        : 4,
     slidesToScroll: 1,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
     nextArrow: <IoArrowBackCircleOutline />,
     prevArrow: <IoArrowForwardCircleOutline />,
   };
 
   return (
-    <>
-      <Carousel
-        {...settings}
-        className="h-full bg-slate-200 w-full grid-cols-2 flex justify-center gap-2 pb-4"
-      >
+    <div className="space-y-4 bg-white border rounded">
+      <h1 className="m-4 text-xl font-bold">Top Categories</h1>
+      <Slider {...settings}>
         {images?.map((image) => (
-          <div key={image?.id} className="relative">
-        
-            <img src={image?.url} alt="image" className="h-full w-full px-4 py-8 " />
-    
-            <p className="absolute  top-[40%] left-[30%]  h-full w-full font-bold text-white text-lg">
-              <span className="bg-[rgb(0,0,0,0.2)] p-4 rounded">
-
-              {image?.text}
-              </span>
+          <div key={image?.id}>
+            <div
+              className="relative bg-cover bg-no-repeat h-[16vh] lg:h-[20vh] mx-4 bg-[image:var(--image-url)] "
+              style={{ "--image-url": `url(${image?.url})` }}
+            >
+              <div className="h-full bg-black opacity-40"></div>
+              <p className="absolute inset-0 z-10 flex items-center justify-center text-xl font-bold text-white">
+                {image?.text}
               </p>
+            </div>
           </div>
         ))}
-      </Carousel>
-    </>
+      </Slider>
+    </div>
   );
 };
 
