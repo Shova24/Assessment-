@@ -1,13 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Click Motto</title>
+
+    <style>
+      /* HTML: <div class="loader"></div> */
+      .parent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        color:aqua;
+        
+      }
+
+      .loader {
+        width: 60px;
+        aspect-ratio: 2;
+        --_g: no-repeat radial-gradient(circle closest-side, #e17800 90%, #0000);
+        background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+        background-size: calc(100% / 3) 50%;
+        animation: l3 1s infinite linear;
+      }
+      @keyframes l3 {
+        20% {
+          background-position: 0% 0%, 50% 50%, 100% 50%;
+        }
+        40% {
+          background-position: 0% 100%, 50% 0%, 100% 50%;
+        }
+        60% {
+          background-position: 0% 50%, 50% 100%, 100% 0%;
+        }
+        80% {
+          background-position: 0% 50%, 50% 50%, 100% 100%;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="parent">
+        <div class="loader"></div>
+        </div>
+     
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
